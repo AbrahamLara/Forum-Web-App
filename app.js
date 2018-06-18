@@ -39,8 +39,12 @@ app.post('/',function(req,res){
         email: req.body.email,
         password: req.body.password
     }).then(function(){
-        res.rend('success');
+        res.render('success');
     });
+});
+
+app.get('/info',function(req,res){
+    res.render('info');
 });
 
 app.listen(port);
