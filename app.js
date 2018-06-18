@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 var Users = sequelize.define('users',{
     name: {
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     email: {
         type: Sequelize.TEXT,
