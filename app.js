@@ -13,5 +13,9 @@ app.get('/',function(req,res){
     res.render('index');
 });
 
+app.post('/',function(req,res){
+    res.render('index');
+});
+
 app.listen(port);
 console.log(`Listening on port ${port}`);
