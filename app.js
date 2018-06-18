@@ -31,21 +31,28 @@ Users.sync().then(function(){
 });
 
 app.get('/',function(req,res){
-    res.render('index');
+    res.render('info');
 });
 
-app.post('/',function(req,res){
+app.get('/register',function(req,res){
+    res.render('register');
+});
+
+app.post('/register',function(req,res){
     Users.create({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password
-    }).then(function(){
-        res.render('success');
-    });
+    })
+    res.render('success');
 });
 
-app.get('/info',function(req,res){
-    res.render('info');
+app.get('/login',function(req,res){
+    res.render('login');
+});
+
+app.post('/login',function(req,res){
+    res.render('main');
 });
 
 app.listen(port);
