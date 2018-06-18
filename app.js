@@ -9,6 +9,14 @@ app.set('view engine','ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.get('/success',function(req,res){
+    res.render('success');
+});
+
+app.post('/success',function(req,res){
+    res.render('success');
+});
+
 app.get('/',function(req,res){
     res.render('index');
 });
