@@ -9,12 +9,24 @@ app.set('view engine','ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/success',function(req,res){
-    res.render('success');
+var Users = sequelize.define('users',{
+    name: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    email: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+        unique: true
+    },
+    password: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    }
 });
 
-app.post('/success',function(req,res){
-    res.render('success');
+Users.sync().then(function(){
+    console.log('Table created');
 });
 
 app.get('/',function(req,res){
@@ -22,7 +34,13 @@ app.get('/',function(req,res){
 });
 
 app.post('/',function(req,res){
-    res.render('index');
+    Users.create({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+    }).then(function(){
+        res.rend('success');
+    });
 });
 
 app.listen(port);
