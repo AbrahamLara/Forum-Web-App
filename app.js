@@ -8,6 +8,7 @@ var port = 8080;
 app.set('view engine','ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use('/public', express.static('public'));
 
 var Users = sequelize.define('users',{
     name: {
@@ -116,7 +117,7 @@ app.get('/main',function(req,res){
 
 /*test for success page*/
 app.get('/success',function(req,res){
-    res.render('success');
+    res.render('success')
 })
 
 app.listen(port);

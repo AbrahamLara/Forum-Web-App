@@ -1,11 +1,15 @@
-.mgn-left {
+/*.mgn-left {
 	margin-left: 5px;
-}
+}*/
 
 .txt-cnt {
 	text-align: center;
 }
-
-#jumbo{
-	background-color: black !important;
+#successBody{
+	background-color: #323334;
+}
+#container{
+	margin-top: 150px;
+	margin-right: 250px;
+	margin-left: 240px; 
 }
