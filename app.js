@@ -25,27 +25,23 @@ var Users = sequelize.define('users',{
     }
 });
 
-// var Thread = sequelize.define(TEMP_NAME,{
-//     id: {
-//         type: Sequelize.INTEGER,
-//         allowNull: false
-//     },
-//     title: {
-//         type: Sequelize.TEXT,
-//         allowNull: false
-//     },
-//     author: {
-//         type: Sequelize.TEXT,
-//         allowNull: false
-//     },
-//     post: {
-//         type: Sequelize.TEXT,
-//         allowNull: false
-//     }
-// });
+var Thread = sequelize.define('threads',{
+    title: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    author: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    post: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    }
+});
 
-// var Posts = sequelize.define(TEMP_NAME,{
-//     // To be filled in
+// var Posts = sequelize.define('posts',{
+//     // To be filled
 // });
 
 Users.sync().then(function(){
@@ -93,7 +89,6 @@ app.post('/login',function(req,res){
             if (rows[i].dataValues.email === email && rows[i].dataValues.password === password) {
                 flag = false;
                 res.redirect('main');
-                setCookie("hello=test");
                 break;
             } else {
                 flag = true;
@@ -106,11 +101,8 @@ app.post('/login',function(req,res){
     });
 });
 
-function setCookie(cookie){
-    document.cookie = cookie;
-}
-
 app.get('/main',function(req,res){
+
     res.render('main');
 });
 
