@@ -114,5 +114,10 @@ app.get('/main',function(req,res){
     res.render('main');
 });
 
+/*test for success page*/
+app.get('/success',function(req,res){
+    res.render('success');
+})
+
 app.listen(port);
 console.log(`Listening on port ${port}`);
