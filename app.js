@@ -26,6 +26,29 @@ var Users = sequelize.define('users',{
     }
 });
 
+var thread = sequelize.define(TEMP_NAME,{
+    id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    title: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    author: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    post: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    }
+});
+
+var posts = sequelize.define(TEMP_NAME,{
+    // To be filled in
+});
+
 Users.sync().then(function(){
     console.log('Table created');
 });
@@ -43,7 +66,7 @@ app.post('/register',function(req,res){
         name: req.body.name,
         email: req.body.email,
         password: req.body.password
-    })
+    });
     res.render('success');
 });
 
@@ -52,7 +75,14 @@ app.get('/login',function(req,res){
 });
 
 app.post('/login',function(req,res){
-    res.render('main');
+
+    Users.findAll({
+        email: req.body.email
+    }).then(function(row){
+        console.log(row);
+    });
+
+    res.render('login');
 });
 
 app.listen(port);
