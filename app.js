@@ -41,12 +41,12 @@ var Thread = sequelize.define('threads',{
     }
 });
 
-// var Posts = sequelize.define('posts',{
-//     // To be filled
-// });
-
 Users.sync().then(function(){
     console.log('Table created');
+});
+
+Thread.sync().then(function(){
+    console.log('Table Created');
 });
 
 app.get('/',function(req,res){
@@ -104,11 +104,97 @@ app.post('/login',function(req,res){
 
 app.get('/main',function(req,res){
 
-    res.render('main');
+    var threads;
+    Thread.findAll().then(function(rows) {
+        threads = rows;
+        res.render('main',{
+            threads: threads
+        });
+    });
 });
 
-app.get('/thread', function(req,res) {
-    res.render('thread');
+app.get('/form',function(req,res){
+    res.render('form');
+});
+
+app.post('/form',function(req,res){
+    if (req.body.title === '' || req.body.author === '' || req.body.post === '') {
+        req.body.name = req.body.password = req.body.email = null;
+    }
+
+    Thread.create({
+        title: req.body.title,
+        author: req.body.author,
+        post: req.body.post
+    }).then(function(item){
+        res.redirect('main');
+    }).catch(function(err){
+        res.render('form');
+    });
+});
+
+app.get('/thread/:id', function(req,res) {
+
+    var id = req.params.id;
+    var table = `post${id}`;
+    var posts;
+
+    var Posts = sequelize.define(table,{
+        author: {
+            type: Sequelize.TEXT,
+            allowNull: false
+        },
+        reply: {
+            type: Sequelize.TEXT,
+            allowNull: false
+        }
+    });
+
+    Posts.sync().then(function(){
+        console.log('Table creates');
+    });
+
+    Posts.findAll().then(function(rows){
+        posts = rows;
+    });
+
+    Thread.findById(id).then(function(thread){
+        res.render('thread',{
+            id: id,
+            thread: thread,
+            posts: posts
+        });
+    });
+})
+
+app.post('/thread/:id', function(req,res) {
+
+    var id = req.params.id;
+    var table = `post${id}`;
+
+    var Posts = sequelize.define(table,{
+        author: {
+            type: Sequelize.TEXT,
+            allowNull: false
+        },
+        reply: {
+            type: Sequelize.TEXT,
+            allowNull: false
+        }
+    });
+
+    Posts.sync().then(function(){
+        console.log('Table creates');
+    });
+
+    Posts.create({
+        author: req.body.name,
+        reply: req.body.reply
+    }).then(function(item){
+        res.redirect(`/thread/${id}`);
+    }).catch(function(err){
+        res.redirect(`/thread/${id}`);
+    });
 })
 
 app.listen(port);
