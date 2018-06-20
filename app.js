@@ -167,5 +167,35 @@ app.get('/thread/:id', function(req,res) {
     });
 })
 
+app.post('/thread/:id', function(req,res) {
+
+    var id = req.params.id;
+    var table = `post${id}`;
+
+    var Posts = sequelize.define(table,{
+        author: {
+            type: Sequelize.TEXT,
+            allowNull: false
+        },
+        reply: {
+            type: Sequelize.TEXT,
+            allowNull: false
+        }
+    });
+
+    Posts.sync().then(function(){
+        console.log('Table creates');
+    });
+
+    Posts.create({
+        author: req.body.name,
+        reply: req.body.reply
+    }).then(function(item){
+        res.redirect(`/thread/${id}`);
+    }).catch(function(err){
+        res.redirect(`/thread/${id}`);
+    });
+})
+
 app.listen(port);
 console.log(`Listening on port ${port}`);
