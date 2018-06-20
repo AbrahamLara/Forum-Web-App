@@ -13,3 +13,32 @@
 	margin-right: 250px;
 	margin-left: 240px; 
 }
+
+/******info page*******/
+#jumbo{
+	margin-top:10px; 
+	background-color: transparent;
+}
+#jumbo:hover{
+	background-color: white;
+	transition: 2s;
+}
+#jumbo a{
+	color: #28a745;
+    background-color: transparent;
+    background-image: none;
+    border-color: #28a745;
+}
+#jumbo a:hover{
+	background-color:#28a745; 
+	color: white;
+}
+
+#infoRow:hover{
+	background-color: white;
+	transition: 2s;
+}
+#infoRow{ 
+	border-width: 100px;
+	background-color: transparent;
+}
