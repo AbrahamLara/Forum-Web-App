@@ -20,12 +20,12 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
+        <div class="container" class="rounded">
         <% for (var i = threads.length-1; i >= 0; i--) { %>
             <div class="threadBack">
                 <h2><a href="/thread/<%= threads[i].dataValues.id %>" id="links"><%= threads[i].dataValues.title %></a></h2>
                     <hr class="my-4">
-                    <p id="bottomBorder">- <%= threads[i].dataValues.author %></p>
+                    <p>- <%= threads[i].dataValues.author %></p>
                     <p><%= threads[i].dataValues.post %></p>  
             </div>
         <% } %>
