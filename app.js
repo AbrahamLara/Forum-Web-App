@@ -106,5 +106,10 @@ app.get('/main',function(req,res){
     res.render('main');
 });
 
+app.get('/thread', function(req,res) {
+    res.render('thread');
+})
+
+
 app.listen(port);
 console.log(`Listening on port ${port}`);
