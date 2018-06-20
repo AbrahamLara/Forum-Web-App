@@ -22,15 +22,11 @@
         </nav>
         <div class="container">
         <% for (var i = threads.length-1; i >= 0; i--) { %>
-            
-                    <div class="threadBack">
-                        <h2><%= threads[i].dataValues.title %></h2>
-                        <hr class="my-4">
-                        <p>- <%= threads[i].dataValues.author %></p>
-                    </div>
-                        
-            
-        
+            <div class="threadBack">
+                <h2><a href="/thread/<%= threads[i].dataValues.id %>"><%= threads[i].dataValues.title %></a></h2>
+                    <hr class="my-4">
+                    <p>- <%= threads[i].dataValues.author %></p>
+            </div>
             <div class="threadBack">
                     <p><%= threads[i].dataValues.post %></p>  
             </div>
