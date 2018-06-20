@@ -108,14 +108,48 @@ app.post('/login',function(req,res){
 
 app.get('/main',function(req,res){
 
-    res.render('main');
+    var threads;
+    Thread.findAll().then(function(rows) {
+        threads = rows;
+        res.render('main',{
+            threads: threads
+        });
+    });
 });
 
 app.get('/form',function(req,res){
-    res.render('form');
+    Thread.findAll().then(function(rows) {
+        for (var  i = 0; i < rows.length; i++ ) {
+            if (rows[i].dataValues.email === email && rows[i].dataValues.password === password) {
+                flag = false;
+                res.redirect('main');
+                break;
+            } else {
+                flag = true;
+            }
+        }
+
+        if (flag) {
+            res.redirect('login');
+        }
+    });
 });
 
-// app.post();
+app.post('/form',function(req,res){
+    if (req.body.name === '' || req.body.email === '' || req.body.password === '') {
+        req.body.name = req.body.password = req.body.email = null;
+    }
+
+    Thread.create({
+        title: req.body.title,
+        author: req.body.author,
+        post: req.body.post
+    }).then(function(item){
+        res.render('main');
+    }).catch(function(err){
+        res.render('form');
+    });
+});
 
 app.get('/thread/:id', function(req,res) {
 
