@@ -41,11 +41,6 @@ var Thread = sequelize.define('threads',{
     }
 });
 
-// var Posts = sequelize.define('posts',{
-//     // To be filled
-// });
-
-// You need these for the tables to be created
 Users.sync().then(function(){
     console.log('Table created');
 });
@@ -119,25 +114,11 @@ app.get('/main',function(req,res){
 });
 
 app.get('/form',function(req,res){
-    Thread.findAll().then(function(rows) {
-        for (var  i = 0; i < rows.length; i++ ) {
-            if (rows[i].dataValues.email === email && rows[i].dataValues.password === password) {
-                flag = false;
-                res.redirect('main');
-                break;
-            } else {
-                flag = true;
-            }
-        }
-
-        if (flag) {
-            res.redirect('login');
-        }
-    });
+    res.render('form');
 });
 
 app.post('/form',function(req,res){
-    if (req.body.name === '' || req.body.email === '' || req.body.password === '') {
+    if (req.body.title === '' || req.body.author === '' || req.body.post === '') {
         req.body.name = req.body.password = req.body.email = null;
     }
 
@@ -146,7 +127,7 @@ app.post('/form',function(req,res){
         author: req.body.author,
         post: req.body.post
     }).then(function(item){
-        res.render('main');
+        res.redirect('main');
     }).catch(function(err){
         res.render('form');
     });
@@ -155,9 +136,34 @@ app.post('/form',function(req,res){
 app.get('/thread/:id', function(req,res) {
 
     var id = req.params.id;
+    var table = `post${id}`;
+    var posts;
 
-    res.render('thread',{
-        id: id
+    var Posts = sequelize.define(table,{
+        author: {
+            type: Sequelize.TEXT,
+            allowNull: false
+        },
+        reply: {
+            type: Sequelize.TEXT,
+            allowNull: false
+        }
+    });
+
+    Posts.sync().then(function(){
+        console.log('Table creates');
+    });
+
+    Posts.findAll().then(function(rows){
+        posts = rows;
+    });
+
+    Thread.findById(id).then(function(thread){
+        res.render('thread',{
+            id: id,
+            thread: thread,
+            posts: posts
+        });
     });
 })
 
