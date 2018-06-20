@@ -19,6 +19,9 @@
 	margin-top:10px; 
 	background-color: transparent;
 }
+#jumbo h1{
+	text-shadow: whitesmoke;
+}
 #jumbo:hover{
 	background-color: white;
 	transition: 2s;
