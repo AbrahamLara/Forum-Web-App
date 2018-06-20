@@ -57,14 +57,7 @@
 
 .threadBack {
 	background-color: whitesmoke;
-	border-radius: 10%;
 }
-
-#bottomBorder{
-	border-bottom: #323334 1px;
-	padding-bottom: 5px;
-}
-
 #links{
 	color: black;
 	text-decoration: none;
