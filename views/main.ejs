@@ -16,28 +16,20 @@
             </form>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link disabled" href="#">Logout</a>
+                    <a class="nav-item nav-link" href="#">Logout</a>
                 </div>
             </div>
         </nav>
         <div class="container">
             <% for (var i = threads.length-1; i >= 0; i--) { %>
-            <div class="accordion" id="accordionExample">
-              <div class="card">
-                <div class="card-header" id="headingOne">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="button1">
-                        <%= threads[i].dataValues.title %>
-                        </button>
-                        - <%= threads[i].dataValues.author %>
-                        <form action="">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" formaction="/thread/<%= threads[i].dataValues.id %>">Open</button>
-                        </form>
-                    </h5>
-                    <!-- <form class="form-inline my-2 my-lg-0">
+            
                     
-                    </form> -->
-                </div>
+                        <h2><%= threads[i].dataValues.title %></h2>
+                        <hr class="my-4">
+                        <p>- <%= threads[i].dataValues.author %></p>
+                        
+            
+        </div>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                   <div class="card-body">
                         <%= threads[i].dataValues.post %>
