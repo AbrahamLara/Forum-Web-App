@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Main</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
@@ -13,10 +13,10 @@
             <a class="navbar-brand" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" href="/">Thread</a>
         </nav>
         <div class="jumbotron">
-          <h1 class="display-4">Author!</h1>
-          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          <h1 class="display-4"><%= thread.title %></h1>
+          <p class="lead"><%= thread.author %></p>
           <hr class="my-4">
-          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+          <p><%= thread.post %></p>
           <a class="btn btn-primary btn-lg" href="#" role="button">Reply</a>
         </div>
         <div class="container">
@@ -28,7 +28,7 @@
                 made a post.
             </div>
             <h6 class="text-muted time">1 minute ago</h6>
-        </div>
+        </div> 
 
         <script>
         $(document).ready(function(){
