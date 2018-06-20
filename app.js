@@ -44,8 +44,13 @@ var Thread = sequelize.define('threads',{
 //     // To be filled
 // });
 
+// You need these for the tables to be created
 Users.sync().then(function(){
     console.log('Table created');
+});
+
+Thread.sync().then(function(){
+    console.log('Table Created');
 });
 
 app.get('/',function(req,res){
@@ -106,10 +111,20 @@ app.get('/main',function(req,res){
     res.render('main');
 });
 
-app.get('/thread', function(req,res) {
-    res.render('thread');
-})
+app.get('/form',function(req,res){
+    res.render('form');
+});
 
+// app.post();
+
+app.get('/thread/:id', function(req,res) {
+
+    var id = req.params.id;
+
+    res.render('thread',{
+        id: id
+    });
+})
 
 app.listen(port);
 console.log(`Listening on port ${port}`);
