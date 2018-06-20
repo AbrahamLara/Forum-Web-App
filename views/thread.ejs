@@ -13,64 +13,58 @@
             <a class="navbar-brand" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" href="/">Thread</a>
         </nav>
         <div class="jumbotron">
-          <h1 class="display-4"><%= thread.title %></h1>
-          <p class="lead">- <%= thread.author %></p>
-          <hr class="my-4">
-          <p><%= thread.post %></p>
-          <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Reply!
-        </button>
-        <!-- Modal -->
-        <form method="POST" action="/thread/<%= id %>">
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <div class="form-group">
-                                <div class="container">
-                                    <div class="row">
-                                        <label for="exampleFormControlTextarea1">Name</label>
-                                        <input name="name" class="form-control" id="exampleFormControlTextarea1"></input>
+            <h1 class="display-4"><%= thread.title %></h1>
+            <p class="lead">- <%= thread.author %></p>
+            <hr class="my-4">
+            <p><%= thread.post %></p>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Reply!
+            </button>
+            <!-- Modal -->
+            <form method="POST" action="/thread/<%= id %>">
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="form-group">
+                                        <div class="container">
+                                            <div class="row">
+                                                <label for="exampleFormControlTextarea1">Name</label>
+                                                <input name="name" class="form-control" id="exampleFormControlTextarea1"></input>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Reply</label>
+                            <textarea name="reply" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary" value="Enter">
+                    </div>  
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Reply</label>
-                        <textarea name="reply" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" value="Enter">
-                </div>  
-            </div>
-        </form>
+            </form>
         </div>
         </div>      
         </div>
         <div class="container">
+            <% for (var  i = posts.length-1; i >= 0; i--) { %>
             <div class="jumbotron">
                  <div class="container">
-                    <h1 class="display-4"></h1>
+                    <h1 class="display-4"><%= posts[i].dataValues.author %></h1>
                     <hr class="my-4">
-                    <p class="lead"></p>
+                    <p class="lead"><%= posts[i].dataValues.reply %></p>
                 </div>
             </div>
-            <a href="#" data-toggle="popover" title="Author" data-content="Thread">Thread</a>
-        </div>
-        <div class="pull-left meta">
-            <div class="title h5">
-                <a href="#"><b>Author</b></a>
-                made a post.
-            </div>
-            <h6 class="text-muted time">1 minute ago</h6>
+            <% } %>
         </div>
         <script src="script/index.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

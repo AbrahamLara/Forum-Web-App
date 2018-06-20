@@ -156,13 +156,12 @@ app.get('/thread/:id', function(req,res) {
 
     Posts.findAll().then(function(rows){
         posts = rows;
-    });
-
-    Thread.findById(id).then(function(thread){
-        res.render('thread',{
-            id: id,
-            thread: thread,
-            posts: posts
+        Thread.findById(id).then(function(thread){
+            res.render('thread',{
+                id: id,
+                thread: thread,
+                posts: posts
+            });
         });
     });
 })
