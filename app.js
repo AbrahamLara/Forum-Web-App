@@ -111,6 +111,8 @@ app.get('/thread', function(req,res) {
     res.render('thread');
 })
 
+/*******info.ejs*****/
+
 
 app.listen(port);
 console.log(`Listening on port ${port}`);
