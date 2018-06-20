@@ -23,7 +23,7 @@
         <div class="container">
         <% for (var i = threads.length-1; i >= 0; i--) { %>
             <div class="threadBack">
-                <h2><a href="/thread/<%= threads[i].dataValues.id %>"><%= threads[i].dataValues.title %></a></h2>
+                <h2><a href="/thread/<%= threads[i].dataValues.id %>" id="links"><%= threads[i].dataValues.title %></a></h2>
                     <hr class="my-4">
                     <p>- <%= threads[i].dataValues.author %></p>
             </div>
