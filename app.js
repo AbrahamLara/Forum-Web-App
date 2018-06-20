@@ -41,12 +41,32 @@ var Thread = sequelize.define('threads',{
     }
 });
 
+var Posts = sequelize.define('posts',{
+
+    belongsto: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    author: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    reply: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    }
+});
+
 Users.sync().then(function(){
-    console.log('Table created');
+    
 });
 
 Thread.sync().then(function(){
-    console.log('Table Created');
+    
+});
+
+Posts.sync().then(function(){
+    
 });
 
 app.get('/',function(req,res){
@@ -136,25 +156,13 @@ app.post('/form',function(req,res){
 app.get('/thread/:id', function(req,res) {
 
     var id = req.params.id;
-    var table = `post${id}`;
     var posts;
 
-    var Posts = sequelize.define(table,{
-        author: {
-            type: Sequelize.TEXT,
-            allowNull: false
-        },
-        reply: {
-            type: Sequelize.TEXT,
-            allowNull: false
+    Posts.findAll({
+        where: {
+            belongsto: id
         }
-    });
-
-    Posts.sync().then(function(){
-        console.log('Table creates');
-    });
-
-    Posts.findAll().then(function(rows){
+    }).then(function(rows){
         posts = rows;
         Thread.findById(id).then(function(thread){
             res.render('thread',{
@@ -171,22 +179,8 @@ app.post('/thread/:id', function(req,res) {
     var id = req.params.id;
     var table = `post${id}`;
 
-    var Posts = sequelize.define(table,{
-        author: {
-            type: Sequelize.TEXT,
-            allowNull: false
-        },
-        reply: {
-            type: Sequelize.TEXT,
-            allowNull: false
-        }
-    });
-
-    Posts.sync().then(function(){
-        console.log('Table creates');
-    });
-
     Posts.create({
+        belongsto: id,
         author: req.body.name,
         reply: req.body.reply
     }).then(function(item){
