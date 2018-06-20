@@ -58,3 +58,13 @@
 .threadBack{
 	background-color: whitesmoke;
 }
+
+#links{
+	color: black;
+	text-decoration: none;
+}
+
+#links:hover{
+	color: whitesmoke;
+	transition: 2s; 
+}
