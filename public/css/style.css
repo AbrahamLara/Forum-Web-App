@@ -45,3 +45,12 @@
 	border-width: 100px;
 	background-color: transparent;
 }
+
+/************************  TESTING ***********************/
+
+body  {
+	background-image: url("https://fsmedia.imgix.net/7c/64/de/56/fb79/497e/b8ca/d146bcdd00ab/space-genetics-is-essential-making-life-in-space-work.jpeg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+}
