@@ -97,8 +97,8 @@ body{
 	background-image: url("https://gweb-earth.storage.googleapis.com/assets/hero@2x.jpg");
 	background-size: auto;
 	background-repeat: no-repeat;
-	background-size: 100%;
-	background-attachment: cover;
+	background-size: cover;
+	background-attachment: fixed;
 }
 #login{
 	width: 400px;
