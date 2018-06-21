@@ -42,11 +42,6 @@ var Thread = sequelize.define('threads',{
 });
 
 var Posts = sequelize.define('posts',{
-
-    belongsto: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-    },
     author: {
         type: Sequelize.TEXT,
         allowNull: false
@@ -56,6 +51,8 @@ var Posts = sequelize.define('posts',{
         allowNull: false
     }
 });
+
+Posts.belongsTo(Thread);
 
 Users.sync().then(function(){
     
@@ -180,9 +177,9 @@ app.post('/thread/:id', function(req,res) {
     var table = `post${id}`;
 
     Posts.create({
-        belongsto: id,
         author: req.body.name,
-        reply: req.body.reply
+        reply: req.body.reply,
+        threadId: id
     }).then(function(item){
         res.redirect(`/thread/${id}`);
     }).catch(function(err){
