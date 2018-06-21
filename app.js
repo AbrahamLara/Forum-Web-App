@@ -157,7 +157,7 @@ app.get('/thread/:id', function(req,res) {
 
     Posts.findAll({
         where: {
-            belongsto: id
+            threadId: id
         }
     }).then(function(rows){
         posts = rows;
