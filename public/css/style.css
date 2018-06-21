@@ -1,3 +1,6 @@
+body{
+	font-family: 'Space Mono', monospace; 
+}
 .mgn-left {
 	margin-left: 5px;
 }
@@ -5,9 +8,7 @@
 .txt-cnt {
 	text-align: center;
 }
-#successBody{
-	background-color: #323334;
-}
+
 #container{
 	margin-top: 150px;
 	margin-right: 250px;
@@ -18,15 +19,23 @@
 #jumbo{
 	margin-top:10px; 
 	background-color: transparent;
+	color: transparent;
 }
-#jumbo h1{
-	text-shadow: whitesmoke;
+#jumbo button{
+	color: transparent;
+	background-color: transparent;
+	border: transparent;
+}
+#jumbo button:hover{
+	color: white;
+	background-color: #28a745;
 }
 #jumbo:hover{
 	background-color: white;
 	transition: 2s;
+	color: black;
 }
-#jumbo a{
+/* #jumbo a{
 	color: #28a745;
     background-color: transparent;
     background-image: none;
@@ -35,15 +44,18 @@
 #jumbo a:hover{
 	background-color:#28a745; 
 	color: white;
-}
-
+	color: black;
+} */
 #infoRow:hover{
 	background-color: white;
+	color: black;
+	font-family: 'Space Mono', monospace; 
 	transition: 2s;
 }
 #infoRow{ 
 	border-width: 100px;
 	background-color: transparent;
+	color: transparent;
 }
 
 /************************  TESTING ***********************/
@@ -66,4 +78,42 @@
 #links:hover{
 	color: red;
 	transition: 2s; 
+}
+
+/* MAIN */
+
+#containerMain{
+	width: 500px;
+	display: inline-block;
+}
+
+#indent{
+    white-space: pre-wrap;
+}
+
+/* LOGIN */
+#loginBackground{
+	background-image: url("https://gweb-earth.storage.googleapis.com/assets/hero@2x.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+}
+#login{
+	width: 400px;
+	color: white;
+	margin-top: 100px; 
+}
+/* REGISTER */
+
+#registerBackground{
+
+	background-image: url("https://images.pexels.com/photos/14676/pexels-photo-14676.png?cs=srgb&dl=sky-night-dark-14676.jpg&fm=jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+}
+#formRegister{
+	color: white;
+	width: 30%;
+	margin-top: 100px;
 }
