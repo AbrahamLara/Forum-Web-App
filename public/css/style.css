@@ -63,6 +63,7 @@ body{
 #space{
 	background-image: url("https://fsmedia.imgix.net/7c/64/de/56/fb79/497e/b8ca/d146bcdd00ab/space-genetics-is-essential-making-life-in-space-work.jpeg");
 	background-repeat: no-repeat;
+	background-size: auto;
 	background-size: 100%;
 	background-attachment: fixed;
 }
@@ -94,6 +95,7 @@ body{
 /* LOGIN */
 #loginBackground{
 	background-image: url("https://gweb-earth.storage.googleapis.com/assets/hero@2x.jpg");
+	background-size: auto;
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-attachment: fixed;
@@ -108,6 +110,7 @@ body{
 #registerBackground{
 
 	background-image: url("https://images.pexels.com/photos/14676/pexels-photo-14676.png?cs=srgb&dl=sky-night-dark-14676.jpg&fm=jpg");
+	background-size: auto;
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-attachment: fixed;
