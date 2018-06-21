@@ -3,7 +3,7 @@ var app = express();
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('postgres://'+process.env.POSTGRES_USER+':'+process.env.POSTGRES_PASSWORD+'@localhost/authentication');
 var bodyParser = require('body-parser');
-app.set('port',process.env.PORT || 5000);
+var port = 8080;
 
 app.set('view engine','ejs');
 app.use(express.static('public'));
@@ -190,5 +190,5 @@ app.post('/thread/:id', function(req,res) {
     });
 })
 
-app.listen(app.get('port'));
-console.log(`Listening on port ${app.get('port')}`);
+app.listen(port);
+console.log(`Listening on port ${port}`);
