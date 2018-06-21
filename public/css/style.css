@@ -8,13 +8,28 @@ body{
 .txt-cnt {
 	text-align: center;
 }
-
+/* SUCCESS */
 #container{
 	margin-top: 150px;
 	margin-right: 250px;
-	margin-left: 240px; 
+	margin-left: 240px;
+	background: transparent; 
+	color: #ffffff;
+	text-shadow: 4px 4px black;
 }
+#container a{
+	background: transparent;
+	border: transparent;
+	color: #ffffff;
 
+}
+#successBody{
+	background-image: url("http://paperlief.com/images/milky-way-galaxy-and-the-andromeda-galaxy-wallpaper-2.jpg");
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-size: cover;
+	background-attachment: fixed;
+}
 /******info page*******/
 #jumbo{
 	margin-top:10px; 
@@ -35,17 +50,6 @@ body{
 	transition: 2s;
 	color: black;
 }
-/* #jumbo a{
-	color: #28a745;
-    background-color: transparent;
-    background-image: none;
-    border-color: #28a745;
-}
-#jumbo a:hover{
-	background-color:#28a745; 
-	color: white;
-	color: black;
-} */
 #infoRow:hover{
 	background-color: white;
 	color: black;
@@ -120,3 +124,27 @@ body{
 	width: 30%;
 	margin-top: 100px;
 }
+
+/* FORM */
+#backgroundForForm{
+	background-image: url("http://i.huffpost.com/gen/1918992/images/o-MOON-facebook.jpg");
+	background-size: auto;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	font-family: 'Space Mono', monospace; 
+	color: white;
+}
+#formBackground{
+	width: 500px;
+	margin-top: 200px;
+}
+
+#formBackground:hover{
+	color: rgb(166, 255, 0);
+	transition: 2s;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+/* THREAD */
