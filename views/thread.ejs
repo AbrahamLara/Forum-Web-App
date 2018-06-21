@@ -6,17 +6,19 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Main</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
     <body id="successBody">
         <nav class="navbar navbar-dark bg-dark">
             <a class="navbar-brand" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" href="/">Thread</a>
+            <button class="btn btn-outline-success my-2 my-sm-0"><a href="/main" class="badge badge-success">Main</a></button>
         </nav>
         <div class="jumbotron">
             <h1 class="display-4"><%= thread.title %></h1>
             <p class="lead">- <%= thread.author %></p>
             <hr class="my-4">
-            <p><%= thread.post %></p>
+            <p id="indent"><%= thread.post %></p>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Reply!

@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
     <body id="successBody">
@@ -22,17 +23,18 @@
         </nav>
         <div class="container" class="rounded">
         <% for (var i = threads.length-1; i >= 0; i--) { %>
-            <div class="threadBack">
-                <div class="container">
-                    <h2><a href="/thread/<%= threads[i].dataValues.id %>" id="links"><%= threads[i].dataValues.title %></a></h2>
-                    <p>- <%= threads[i].dataValues.author %></p>
+            <div class="container" id=containerMain>
+                <div class="jumbotron ">
+                    <div class="container">
+                        <h2 class="display-4"><a href="/thread/<%= threads[i].dataValues.id %>" id="links"><%= threads[i].dataValues.title %></a></h2>
                         <hr class="my-4">
-                        <p><%= threads[i].dataValues.post %></p> 
-                </div> 
-            </div>
+                        <p class="lead">- <%= threads[i].dataValues.author %></p>
+                    </div>
+                </div>
+            </div> 
         <% } %>
         </div>
-        <script src="script/index.js"></script>
+        <script src="/public/script/index.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
