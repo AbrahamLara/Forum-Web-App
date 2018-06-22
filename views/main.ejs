@@ -30,8 +30,11 @@
                         <hr class="my-4">
                         <p class="lead">- <%= threads[i].dataValues.author %></p>
                     </div>
+                    <footer class="page-footer font-small blue pt-4 mt-4">
+                        <%= threads[i].dataValues.createdAt %>
+                    </footer>
                 </div>
-            </div> 
+            </div>
         <% } %>
         </div>
         <script src="/public/script/index.js"></script>
