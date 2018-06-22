@@ -3,5 +3,8 @@
     "description": "A forum web app",
     "repository": "https://github.com/AbrahamLara/Forum-Web-App",
     "logo": "http://node-js-sample.herokuapp.com/node.svg",
-    "keywords": ["node","express","stuff"]
+    "keywords": ["node","express","stuff"],
+    "env": {
+        "PORT": 8080
+    }
 }
