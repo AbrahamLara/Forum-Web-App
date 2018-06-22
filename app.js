@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var port = 8080;
+app.set('port',(process.env.PORT || 500));
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('postgres://'+process.env.POSTGRES_USER+':'+process.env.POSTGRES_PASSWORD+'@localhost/authentication');
 var bodyParser = require('body-parser');
@@ -186,5 +186,5 @@ app.post('/thread/:id', function(req,res) {
     });
 })
 
-app.listen(port);
-console.log(`Listening on port ${port}`);
+app.listen(app.get('port'));
+console.log(`Listening on port ${app.get('port')}`);
