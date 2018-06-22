@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 app.set('port',(process.env.PORT || 5000));
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('postgres://'+process.env.POSTGRES_USER+':'+process.env.POSTGRES_PASSWORD+'@localhost/authentication');
+var sequelize = new Sequelize(process.env.DATABASE_URL);
 var bodyParser = require('body-parser');
 
 app.set('view engine','ejs');
