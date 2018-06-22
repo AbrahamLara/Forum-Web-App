@@ -1,0 +1,33 @@
+{
+  "name": "group-project",
+  "version": "1.0.0",
+  "description": "Forum Web App",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.4.3",
+    "sequelize": "^4.37.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines":{
+    "node": "8.11.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbrahamLara/Group-Project.git"
+  },
+  "author": "Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbrahamLara/Group-Project/issues"
+  },
+  "homepage": "https://github.com/AbrahamLara/Group-Project#readme"
+}

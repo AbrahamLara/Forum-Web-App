@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('postgres://'+process.env.POSTGRES_USER+':'+process.env.POSTGRES_PASSWORD+'@localhost/authentication');
+var sequelize = new Sequelize('postgres://'+process.env.POSTGRES_USER+':'+process.env.POSTGRES_PASSWORD+'@'+pro.env.POSTGRES_HOST+'/'+process.env.POSTGRES_DATABASE);
 var bodyParser = require('body-parser');
 var port = 8080;
 
