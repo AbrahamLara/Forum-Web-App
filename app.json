@@ -1,0 +1,7 @@
+{
+    "name": "Forum Web App",
+    "description": "Forum Web App",
+    "repository": "https://github.com/AbrahamLara/Forum-Web-App",
+    "logo": "http://node-js-sample.herokuapp.com/node.svg",
+    "keywords": ["node","express","stuff"]
+}
