@@ -16,7 +16,9 @@
   "engines": {
     "node": "8.11.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "sequelize": ">=5.3.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
