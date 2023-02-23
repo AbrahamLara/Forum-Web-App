@@ -10,14 +10,14 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pg": "^7.4.3",
-    "sequelize": "^5.15.1",
+    "sequelize": "^6.28.2",
     "body-parser": "^1.18.3"
   },
   "engines": {
     "node": "8.11.2"
   },
   "devDependencies": {
-    "sequelize": ">=5.15.1"
+    "sequelize": ">=6.28.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
